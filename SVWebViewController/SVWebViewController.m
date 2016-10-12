@@ -285,7 +285,7 @@
         
         if ([[url absoluteString] hasPrefix:@"file:///"]) {
             UIDocumentInteractionController *dc = [UIDocumentInteractionController interactionControllerWithURL:url];
-            [dc presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
+//            [dc presentOptionsMenuFromRect:self.view.bounds inView:self.view animated:YES];
         } else {
             UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:@[url] applicationActivities:activities];
             
@@ -299,7 +299,7 @@
             }
 #endif
             
-            [self presentViewController:activityController animated:YES completion:nil];
+//            [self presentViewController:activityController animated:YES completion:nil];
         }
     }
 }
