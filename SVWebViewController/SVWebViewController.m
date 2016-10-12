@@ -16,7 +16,6 @@
 @property (nonatomic, strong) UIBarButtonItem *forwardBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *refreshBarButtonItem;
 @property (nonatomic, strong) UIBarButtonItem *stopBarButtonItem;
-@property (nonatomic, strong) UIBarButtonItem *actionBarButtonItem;
 
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSURLRequest *request;
@@ -74,7 +73,6 @@
     _forwardBarButtonItem = nil;
     _refreshBarButtonItem = nil;
     _stopBarButtonItem = nil;
-    _actionBarButtonItem = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -157,13 +155,6 @@
     return _stopBarButtonItem;
 }
 
-- (UIBarButtonItem *)actionBarButtonItem {
-    if (!_actionBarButtonItem) {
-        _actionBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(actionButtonTapped:)];
-    }
-    return _actionBarButtonItem;
-}
-
 #pragma mark - Toolbar
 
 - (void)updateToolbarItems {
@@ -187,7 +178,6 @@
                           fixedSpace,
                           self.forwardBarButtonItem,
                           fixedSpace,
-                          self.actionBarButtonItem,
                           nil];
         
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, toolbarWidth, 44.0f)];
@@ -205,8 +195,6 @@
                           self.forwardBarButtonItem,
                           flexibleSpace,
                           refreshStopBarButtonItem,
-                          flexibleSpace,
-                          self.actionBarButtonItem,
                           fixedSpace,
                           nil];
         
